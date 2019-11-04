@@ -10,6 +10,12 @@ function App() {
     setUserQuery(event.target.value);
   }
 
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      searchQuery();
+    }
+  }
+
   const searchQuery = () => {
     window.open(`https://google.com/search?q=${userQuery}`, '_blank');
   }
@@ -18,7 +24,7 @@ function App() {
     <div className="App">
       <h1>Hello Tasha</h1>
       <div className='form'>
-        <input alue={userQuery} onChange={updateUserQuery} />
+        <input alue={userQuery} onChange={updateUserQuery} onKeyPress={handleKeyPress} />
         <button onClick={searchQuery}>Search</button>
       </div>
     </div>
